@@ -34,7 +34,7 @@ First, let me say I want this entire project setup to be as stripped down as muc
 
 Also, I use specific package version without the `^` in my `package.json`. I want all environments to have the exact same versions, so I make sure that's what I'm installing.
 
-### Install React and Typescript
+## Install React and Typescript
 
 First, I'll install:
 
@@ -46,7 +46,7 @@ yarn add -D typescript @types/react @types/react-dom
 
 Oh yeah, I use `yarn` because I like it. Pick one and stick to it within a project. Doesn't _really_ matter which.
 
-### Configure Typescript
+## Configure Typescript
 
 I never remember this stuff, so I'm just grabbing this for a blog:
 
@@ -73,7 +73,7 @@ I never remember this stuff, so I'm just grabbing this for a blog:
 
 Dumping that into my `tsconfig.json`. See how that goes.
 
-### Bootstrapping the <App />
+### Bootstrapping the `<App />`
 
 Note: I [read](https://twitter.com/dan_abramov/status/1308739731551858689?s=20) from the man, himself (Dan Abramov) that future versions of React will not support the default import, so I go for `import * as React from 'react'`, now.
 
@@ -90,7 +90,7 @@ ReactDOM.render(
 
 I'm doing this now so I have _something_ for the following the following steps.
 
-### Linting
+## Linting
 
 Let's get the linter going first.
 
@@ -178,7 +178,7 @@ $ eslint --cache --fix src/*
 
 - Don't forget to add `.eslintcache` to your `.gitignore`
 
-### Compiling and bundling
+## Compiling and bundling
 
 As mentioned above, I'll be using `esbuild-loader` to do the compilation but sticking with `webpack` for the bundling. If I run into issues with esbuild and my module federation, I may switch to babel. For now, this is it.
 
