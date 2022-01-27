@@ -11,4 +11,4 @@ As I build out my site, I'll be trying out new ideas and mashing up a bunch of t
 
 #### Blog Posts
 
-[Jan 27, 2022 - Initial thoughts and setup](https://github.com/matldupont/matdupont-dev/blob/main/01-setup.mdd) 
+[Jan 27, 2022 - Initial thoughts and setup](https://github.com/matldupont/matdupont-dev/blob/main/01-setup.md) 
