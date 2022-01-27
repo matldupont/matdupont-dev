@@ -1,0 +1,10 @@
+{
+  "name": "matdupont.dev",
+  "version": "1.0.0",
+  "description": "matdupont.dev site container",
+  "main": "index.js",
+  "repository": "https://github.com/matldupont/matdupont-dev",
+  "author": "Mat Dupont",
+  "license": "MIT",
+  "private": false
+}
