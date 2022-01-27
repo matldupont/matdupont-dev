@@ -7,3 +7,7 @@ Welcome to my playground, personal site, blog... thing. The **Mataverse**, if yo
 As I build out my site, I'll be trying out new ideas and mashing up a bunch of things that _shouldn't necessarily_ go together. As I do it, I'll write about it. I'm not sure where I'll post those writings, but I'm guessing they'll eventually make their way into a blog within this site.
 
 ... as soon as I build that part.
+
+
+#### Blog Posts
+- [Jan 27, 2022 - Initial thoughts and setup](https://github.com/matldupont/matdupont-dev/blob/main/01-setup.mdd) 
