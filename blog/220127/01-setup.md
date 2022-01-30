@@ -326,4 +326,6 @@ yarn dev
 <i> [webpack-dev-server] Loopback: http://localhost:4000/
 ```
 
+![MatDupont.dev running](site-running.png)
+
 ## Shit, I forgot Prettier!
