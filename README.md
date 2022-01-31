@@ -13,3 +13,5 @@ As I build out my site, I'll be trying out new ideas and mashing up a bunch of t
 [Jan 27, 2022 - Initial thoughts and setup](https://github.com/matldupont/matdupont-dev/blob/main/blog/220127/01-setup.md)
 
 [Jan 30, 2022 - Formatting, Compilation Type Checking/Linting and Production Building](https://github.com/matldupont/matdupont-dev/blob/main/blog/220130/01-setup-continued.md)
+
+[Jan 30, 2022 - My Deployment Pipeline](https://github.com/matldupont/matdupont-dev/blob/main/blog/220130/02-deployment.md)
