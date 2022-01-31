@@ -32,7 +32,7 @@ yarn init
 
 First, let me say I want this entire project setup to be as stripped down as much as possible. If I don't specifically need it or I'm not deliberately testing it out, I don't want it.
 
-Also, I use specific package version without the `^` in my `package.json`. I want all environments to have the exact same versions, so I make sure that's what I'm installing.
+Also, I use specific package version without the `^` in my _`package.json`_. I want all environments to have the exact same versions, so I make sure that's what I'm installing.
 
 ## Install React and Typescript
 
@@ -45,6 +45,8 @@ yarn add -D typescript @types/react @types/react-dom
 ```
 
 Oh yeah, I use `yarn` because I like it. Pick one and stick to it within a project. Doesn't _really_ matter which.
+
+The thing that matters is that you make sure to add any dependencies used for your environment and the build process as _devDependencies_. Hence the `-D` flag.
 
 ## Configure Typescript
 
@@ -71,7 +73,7 @@ I never remember this stuff, so I'm just grabbing this for a blog:
 }
 ```
 
-Dumping that into my `tsconfig.json`. See how that goes.
+Dumping that into my _`tsconfig.json`_. See how that goes.
 
 ### Bootstrapping the `<App />`
 
@@ -118,7 +120,7 @@ I'm going with with:
 
 Of course, let it install the required deps.
 
-\*In order to keep things tidy, I leverage rc files rather than throwing everything into my package.json file.
+\*In order to keep things tidy, I leverage `*rc.js` files rather than throwing everything into my package.json file. Sticking with `.js` files rather than `.json` files lets me comment things out as I debug configurations.
 
 **\* At this point, VSCode was like "Holy shit, Dupont... You don't have a `.gitignore` file!" \*\***
 Even offered to create it for me and add `node_modules` to it.
@@ -142,7 +144,7 @@ Output: 😐 All good, I can fix most of this with a flag.
   15:34  error  Missing trailing comma                            comma-dangle
 ```
 
-Time to add my lint script to `package.json`
+Time to add my lint script to _`package.json`_:
 
 ```
 "scripts": {
@@ -156,7 +158,7 @@ But, still... dafuq?
  6:5  error  JSX not allowed in files with extension '.tsx'  react/jsx-filename-extension
 ```
 
-Just missing a rule in the `.eslintrc.js` file. Tweak #1!
+Just missing a rule in the _`.eslintrc.js`_ file. Tweak #1!
 
 ```
 rules: {
@@ -176,7 +178,7 @@ $ eslint --cache --fix src/*
 ✨  Done in 2.40s.
 ```
 
-- Don't forget to add `.eslintcache` to your `.gitignore`
+- Don't forget to add _`.eslintcache`_ to your _`.gitignore`_
 
 ## Compiling and bundling
 
@@ -216,7 +218,7 @@ This also means I'll need types for packages used in my webpack config.
 yarn add -D @types/html-webpack-plugin
 ```
 
-Here's the initial `webpack.dev.config.ts` file:
+Here's the initial _`webpack.dev.config.ts`_ file:
 
 ```
 import path from "path";
@@ -286,9 +288,9 @@ yarn dev
 
 ### ... So many Typescript issues
 
-After messing with a pile of ts problems, I'm backing out and switching to `webpack.dev.config.js` for old time's sake.
+After messing with a pile of ts problems, I'm backing out and switching to _`webpack.dev.config.js`_ for old time's sake.
 
-After renaming to `webpack.dev.config.js`, rip out the type stuff and convert to commonJS.
+After renaming to _`webpack.dev.config.js`_, rip out the type stuff and convert to commonJS.
 
 ```
 const path = require("path");
@@ -302,7 +304,7 @@ module.exports = {
 }
 ```
 
-In `package.json`:
+In _`package.json`_:
 
 ```
 ....
@@ -326,7 +328,7 @@ yarn dev
 <i> [webpack-dev-server] Loopback: http://localhost:4000/
 ```
 
-![MatDupont.dev running](site-running.png)
+![MatDupont.dev running](site-running-fix.png)
 
 ## Shit, I forgot Prettier!
 
