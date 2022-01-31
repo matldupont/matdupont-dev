@@ -93,7 +93,7 @@ In the bucket, I hit that _Upload_ button and select the files **within** my bui
 
 From the CloudFront distribution, I copy the _Distribution domaion name_ and throw that into my browser's address bar.
 
-**Works!**
+**Works!** [Demo](https://d11boqsx3hjdwp.cloudfront.net/)
 
 Now, I have to get new versions of my code up there without this whole manual process.
 
