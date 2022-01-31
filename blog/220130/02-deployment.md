@@ -97,6 +97,6 @@ From the CloudFront distribution, I copy the _Distribution domaion name_ and thr
 
 Now, I have to get new versions of my code up there without this whole manual process.
 
-\*\* Automation
+## Automation
 
 ... stay tuned.
