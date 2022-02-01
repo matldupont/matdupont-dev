@@ -111,7 +111,7 @@ Not really. I just think I am.
 
 "How do I know that?", you may ask.
 
-I'm going to add something to my _`index.tsx`_ to show test this.
+I'm going to add something to my _`index.tsx`_ to test this.
 
 ```
 function App({ test }) {
