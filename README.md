@@ -1,3 +1,5 @@
+[![Deploy to Production](https://github.com/matldupont/matdupont-dev/actions/workflows/prod-deploy.yml/badge.svg)](https://github.com/matldupont/matdupont-dev/actions/workflows/prod-deploy.yml)
+
 # Hi, I'm Mat 👋
 
 I'm currently a Senior Engineer at Auth0 (Okta). I've been doing a pile of different things since I started my professional career in 2006. Right now, Front End development is my jam.

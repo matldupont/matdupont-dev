@@ -112,3 +112,15 @@ At this point, I have to actually push to `main` for the workflow to register wi
 **Go time!**
 
 ![Github Action running](action-running.png)
+
+**Success!**
+
+![Github Action success](action-success.png)
+
+I can also add a badge to my repo's `README.md`
+
+![Build Badge](build-badge.png)
+
+[![Deploy to Production](https://github.com/matldupont/matdupont-dev/actions/workflows/prod-deploy.yml/badge.svg)](https://github.com/matldupont/matdupont-dev/actions/workflows/prod-deploy.yml)
+
+## Now what?
