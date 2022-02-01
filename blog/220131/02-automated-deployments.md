@@ -109,4 +109,6 @@ Finally, I'll take the **Access key ID** and **Secret access key** and store the
 
 At this point, I have to actually push to `main` for the workflow to register with Github and actually run.
 
-Go time!
+**Go time!**
+
+![Github Action running](action-running.png)
