@@ -34,7 +34,7 @@ name: Deploy to Production
 on:
   push:
     branches:
-      - master
+      - 'main'
 
 jobs:
   build:
