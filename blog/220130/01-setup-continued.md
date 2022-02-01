@@ -6,7 +6,7 @@ So, yeah... I forgot about Prettier and configuring my VSCode on-save settings p
 
 ![Lint errors](lint-errors.png)
 
-Looks like I have some competing rules going on here.
+It also looks like I have some competing rules going on here.
 
 I read the warnings, my linter is expecting single quotes and I'm using doubles:
 
@@ -93,7 +93,7 @@ rules: {
 
 Before moving on, I want to make sure I'm not running prettier on every single file in my repo.
 
-Similar to git, prettier supports an ignore file. \_`.prettierignore`:
+Similar to git, prettier supports an ignore file. _`.prettierignore`_:
 
 ```
 # Ignore artifacts:
