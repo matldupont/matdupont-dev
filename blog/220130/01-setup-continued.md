@@ -175,7 +175,7 @@ What's happening is that my config file is being linted and failing the airbnb r
 I don't want to turn off this rule for my whole codebase and I want to keep using the `.js` format. Here are a few of my options:
 
 - Ignore the `no-extraneous-dependencies` rule for each offending line
-- Ignore the rul for the entire file
+- Ignore the rule for the entire file
 - Adjust _`.eslintrc.js`_ to override rules for specific files.
 
 The last option is more deliberate (and declarative), so that's the one I'll go with.
@@ -243,12 +243,13 @@ Now, we run:
 yarn dev
 ```
 
-And we expect:
+And I expect:
+
 ![Typescript errors](ts-check-error.png)
 
 **This is what I want!**
 
-Now I can clean up my `index.tsx` and get to the next part.
+Now I can clean up my _`index.tsx`_ and get to the next part.
 
 ## Linting during compilation.
 
@@ -287,6 +288,7 @@ module.exports = {
 ```
 
 And now:
+
 ![Compilation lint errors](compilation-lint-errors.png)
 
 Yes! Okay... clean that up.
@@ -370,6 +372,7 @@ _`package.json`_:
 ```
 
 **Success!**
+
 ![Successful build](build.png)
 
 ![Build folder](build-folder.png)
