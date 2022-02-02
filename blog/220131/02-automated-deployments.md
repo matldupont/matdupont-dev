@@ -8,7 +8,7 @@ My tool of choice of this kind of work is [Github Actions](https://github.com/fe
 
 ## Github Actions
 
-These worflows are implemented in your project's codebase and work as soon as they exist (and make sense).
+These worflows are implemented in my project's codebase and work as soon as they exist (even on the PR with containing their initial setup).
 
 Here's the idea for the workflow:
 
@@ -82,8 +82,8 @@ I'm clearly not publishing any keys or important information to this public repo
 
 In my repo's _Settings_, I'll look for _Secrets->Actions_ in the left menu.
 
-`AWS_S3_BUCKET_NAME` -> Whatever you named your S3 bucket
-`AWS_DISTRIBUTION_ID` -> The ID of you CloudFront distribution
+`AWS_S3_BUCKET_NAME` -> Whatever I named my S3 bucket
+`AWS_DISTRIBUTION_ID` -> The ID of my CloudFront distribution
 
 What about `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`?
 
@@ -93,9 +93,9 @@ I need to create a new user that has access to manage both my S3 bucket and the 
 
 I'll give it a name and select the **Access key - Programmatic access** type of credential.
 
-I want this user to have both _AmazonS3FullAccess_ and _CloudFrontFullAccess_ so I'll create a Group that has both those. I'll call this one "cicd-deploy" and create it.
+I want this user to have both _AmazonS3FullAccess_ and _CloudFrontFullAccess_ so I'll create a Group that has both those. I'll call this one "cicd-deploy" and create it. I can now add other users to this group if they need the same access.
 
-It's now in the list of groups to which I can add my new user and already selected. Next!
+It's now in the list of groups to which I can add my new user and it's already selected. Next!
 
 No tags. Next!
 

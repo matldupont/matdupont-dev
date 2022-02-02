@@ -23,7 +23,7 @@ import * as ReactDOM from 'react-dom';
 
 **Wrong!**
 
-It actually is auto-saving and reverting to the double quotes. 🤷
+It actually **is** auto-saving and reverting to the double quotes. 🤷
 
 In a pinch, I could simply [change the eslint rule](https://eslint.org/docs/rules/quotes) to use double quotes and walk away:
 
@@ -53,7 +53,7 @@ After disabling it, I test the manual change to single quotes in my index.tsx fi
 
 Okay, what's the deal with Prettier anyway? Why do I care and why am I doing this?
 
-It's really \*just\*\* about code consistency. I want my site to be pretty and that transcends beyond what renders in the browser. I want my codebase to be easy to read and consistent as well. It also helps when debugging issues.
+It's really just\* about code consistency. I want my site to be pretty and that transcends beyond what renders in the browser. I want my codebase to be easy to read and consistent as well. It also helps when debugging issues.
 
 Eslint helps catch my errors and Prettier formats it for me. They can easily be configured to work hand-in-hand.
 
@@ -103,13 +103,13 @@ coverage
 
 ## Type checking
 
-At this point, my dev environment is running fine and my _seems_ to be running fine. Truth be told, I only have one React component and I'm still missing some fundamental checks in my compilation and bundling process to do.
+At this point, my dev environment _seems_ to be running fine. Truth be told, I only have one React component and I'm still missing some fundamental checks in my compilation and bundling process to do.
 
 I'm using esbuild-loader to compile my `tsx?` files, I'm linting with the `@typescript-eslint` parser and plugin, but am I actually type checking my code?
 
 Not really. I just think I am.
 
-"How do I know that?", you may ask.
+"How do you know that?", you may ask.
 
 I'm going to add something to my _`index.tsx`_ to test this.
 
@@ -131,7 +131,7 @@ function App({ test }) {
 
 Oh, yeah. The airbnb rule set requires all React components to have defined propTypes.
 
-PropTypes are fine if you're using regular `.jsx` components, but I'm using Typescript. I don't want to double up on my typing for no reason.
+PropTypes are fine if I'm using regular `.jsx` components, but I'm using Typescript. I don't want to double up on my typing for no reason.
 
 I'll turn off this rule for my project.
 
@@ -164,9 +164,11 @@ Hmmm... guess not.
 
 Oh, no.
 
+**\*\*BLOCKER\*\***
+
 Upon opening my `webpack.dev.config.js` file, I see some lint errors. Simply saving will format the file properly (eg: remove those double quotes) but I'm still left with a few issues.
 
-This is happening because I chose to use a `.js` file for my config rather than `.json`. This is a personal preference, and this lint issue shouldn't be present if you choose the `.json` format.
+This is happening because I chose to use a `.js` file for my config rather than `.json`. This is a personal preference, and this lint issue shouldn't be present if I had chosen the `.json` format.
 
 What's happening is that my config file is being linted and failing the airbnb rule set:
 
@@ -180,7 +182,7 @@ I don't want to turn off this rule for my whole codebase and I want to keep usin
 
 The last option is more deliberate (and declarative), so that's the one I'll go with.
 
-In addition, I'll take this opportunity to move my \_`webpack.dev.config.js` file to a new `/config` folder at the root of my project. I'll be adding at least one more config file, so I'd like to keep them grouped.
+In addition, I'll take this opportunity to move my _`webpack.dev.config.js`_ file to a new `/config` folder at the root of my project. I'll be adding at least one more config file, so I'd like to keep them grouped.
 
 I'll add this to my _`.eslintrc.js`_ file:
 
@@ -206,9 +208,9 @@ What I'm doing here is telling eslint to override the base rule set specifically
 
 Within that scope, I want to show an error for this rule **unless** the import is a devDependency done within a file ending in `.config.js`.
 
-I had to reload VSCode for this change to take effect, but we're good now.
+\* I had to reload VSCode for this change to take effect, but everything's good now.
 
-\*Tip: `Command+Shift+P` opens the VSCode command menu. Start typing 'Reload' until you see the 'Developer: Reload Window' command. Hit that one with your mouse or keyboard.
+\* Tip: `Command+Shift+P` opens the VSCode command menu. Start typing 'Reload' until you see the 'Developer: Reload Window' command. Hit that one with your mouse or keyboard.
 
 ### ForkTsCheckerWebpackPlugin
 
@@ -355,9 +357,9 @@ You might notice a few differences.
 
 First, this one is setting `mode: "production"`. This tells Webpack to create an optimized build with a few things out of the box. Minification and all that jazz.
 
-Next, we have a new `output` configuration. Here, we tell webpack where to put the build (`path`), the format of the build filnames (content hashed) and the base publicPath.
+Next, I have a new `output` configuration. Here, I tell webpack where to put the build (`path`), the format of the build filnames (content hashed) and the base publicPath.
 
-Lastly, we swap out a few plugins. We no longer need the `HotModuleReplacementPlugin`, but we do want to clean up the previous build as a new one is created. For this, we tack on `new CleanWebpackPlugin()` and make sure to install it as a devDependency.
+Lastly, I swap out a few plugins. I no longer need the `HotModuleReplacementPlugin`, but I do want to clean up the previous build as a new one is created. For this, I tack on `new CleanWebpackPlugin()` and make sure to install it as a devDependency.
 
 ```
 yarn add -D clean-webpack-plugin
@@ -404,7 +406,7 @@ First, I'll install `webpack-merge`. This provides a `merge` function used to co
 yarn add -D webpack-merge
 ```
 
-Now, I'll strip out thge duplicate code:
+Now, I'll strip out the duplicate\* code:
 
 _`webpack.common.config.js`_:
 
@@ -446,6 +448,8 @@ module.exports = {
   ],
 };
 ```
+
+\* Since the plugins work as they should in the correct environment, I can just add them all to the common file.
 
 _`webpack.dev.config.js`_:
 

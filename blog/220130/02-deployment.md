@@ -2,11 +2,11 @@
 
 Sometimes I prefer to build, and build fast. I'll worry about deployment when I get to it, but I want to test out an idea or flesh out a product UI quickly. I might scrap it before it gets to a deployment, so why put in that time up front?
 
-Other times, I know a project is going up. Even a plain, white page with a black title published to the internet is working software after all. I'll be iterating, and I'm probably going to want to show it off to my lovely wife. She total cares about CSS animates and State Management...
+Other times, I know a project is going up. Even a plain, white page with a black title published to the internet is working software after all. I'll be iterating, and I'm probably going to want to show it off to my lovely wife. She total cares about CSS animations and State Management...
 
-This is one of those latter scenarios. I'm not sure what my site will look like or what I'm actually put on it, but I want it up right now.
+This is one of those latter scenarios. I'm not sure what my site will look like or what I'm actually putting on it, but I want it up right now.
 
-I also want it up to date with next to zero work on my end as I iterate.
+I also want it up to date on the web with next to zero work on my end as I iterate.
 
 This deployment pipeline will likely change as I try out new hosting platforms, but for now I'm looking at [AWS](https://console.aws.amazon.com/). Specifically, I'll be leveraging [S3](https://s3.console.aws.amazon.com/) for static hosting and [CloudFront](https://console.aws.amazon.com/cloudfront/) for my CDN.
 
@@ -18,7 +18,7 @@ For no other reason that to toy around with the pipeline myself, I'll be hand ro
 
 Sign up. I won't be going through that part.
 
-### Your S3 bucket
+### My S3 bucket
 
 This bucket is the home of my static site. Time to create one:
 
@@ -26,7 +26,7 @@ This bucket is the home of my static site. Time to create one:
 
 This isn't my first rodeo, so I have another bucket from which I can copy settings. I'll describe those here:
 
-Give the bucket a name. Set the AWS Region closest to you.
+Give the bucket a name. Set the AWS Region closest to me.
 
 Leave all the default values in aside from one section: **Block Public Access settings for this bucket**
 
@@ -63,13 +63,13 @@ I'll add the following policy
 
 - Replace _${BucketName}_ with the name of your bucket.
 
-What I'm doing here is creating a policy where this particular bucket _Allows_ any _GetObject_ action on any resource within the bucket.
+What I'm doing here is creating a policy where this particular bucket _Allows_ the _GetObject_ action on any resource within the bucket.
 
 Upon saving, I can see this bucket is now publicly accessible. Perfect!
 
 Okay, so now I have my bucket ready to go.
 
-### Your CloudFront Distribution
+### My CloudFront Distribution
 
 I'll head on over to CloudFront in the AWS console and smack that _Create Distribution_ button.
 

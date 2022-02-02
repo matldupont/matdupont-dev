@@ -2,7 +2,7 @@
 
 Here's what I'm thinking, and why:
 
-I know [React](https://reactjs.org/) really well. I also want to learn Vue and Svelte... but I have zero interest in learning Angular. So, I'll be using React as the main container for the site.
+I know [React](https://reactjs.org/) really well. I also want to learn Vue and Svelte at some point. So, I'll be using React as the main container for the site.
 
 Ideally, I'll be learning the other two (and maybe others down the road) and will be able to use this site as a playground to learn and practice with the other frameworks.
 
@@ -20,7 +20,7 @@ Babel? ... maybe not. Dealing with some slow build times on another project, I f
 
 I think I dig [Typescript](https://www.typescriptlang.org/). At least, I think I should. In either case, I want to practice so I'll go with that too.
 
-I would consider using [esbuild](https://github.com/evanw/esbuild) rather than webpack, but I have not experience with module federation with esbuild and have no idea if that's a thing yet. One thing at a time.
+I would consider using [esbuild](https://github.com/evanw/esbuild) rather than webpack, but I have no experience with module federation with esbuild and have no idea if that's a thing yet. One thing at a time.
 
 Deployment? 🤷 Future Mat's problem.
 
@@ -30,9 +30,9 @@ Deployment? 🤷 Future Mat's problem.
 yarn init
 ```
 
-First, let me say I want this entire project setup to be as stripped down as much as possible. If I don't specifically need it or I'm not deliberately testing it out, I don't want it.
+First, let me say I want this entire project setup to be as stripped down as possible. If I don't specifically need it or I'm not deliberately testing it out, I don't want it.
 
-Also, I use specific package version without the `^` in my _`package.json`_. I want all environments to have the exact same versions, so I make sure that's what I'm installing.
+Also, I use specific package versions without the `^` in my _`package.json`_. I want all environments to have the exact same versions, so I make sure that's what I'm installing.
 
 ## Install React and Typescript
 
@@ -46,11 +46,11 @@ yarn add -D typescript @types/react @types/react-dom
 
 Oh yeah, I use `yarn` because I like it. Pick one and stick to it within a project. Doesn't _really_ matter which.
 
-The thing that matters is that you make sure to add any dependencies used for your environment and the build process as _devDependencies_. Hence the `-D` flag.
+The thing that matters is that I make sure to add any dependencies used for my environment and the build process as _devDependencies_. Hence the `-D` flag.
 
 ## Configure Typescript
 
-I never remember this stuff, so I'm just grabbing this for a blog:
+I never remember this stuff, so I'm just grabbing this from a blog:
 
 ```
 {
@@ -73,7 +73,7 @@ I never remember this stuff, so I'm just grabbing this for a blog:
 }
 ```
 
-Dumping that into my _`tsconfig.json`_. See how that goes.
+Dump that into my _`tsconfig.json`_. See how that goes.
 
 ### Bootstrapping the `<App />`
 
@@ -90,7 +90,7 @@ ReactDOM.render(
 );
 ```
 
-I'm doing this now so I have _something_ for the following the following steps.
+I'm doing this now so I have _something_ for the following steps.
 
 ## Linting
 
@@ -120,9 +120,10 @@ I'm going with with:
 
 Of course, let it install the required deps.
 
-\*In order to keep things tidy, I leverage `*rc.js` files rather than throwing everything into my package.json file. Sticking with `.js` files rather than `.json` files lets me comment things out as I debug configurations.
+\* In order to keep things tidy, I leverage `*rc.js` files rather than throwing everything into my package.json file. Sticking with `.js` files rather than `.json` files lets me comment things out as I debug configurations.
 
-**\* At this point, VSCode was like "Holy shit, Dupont... You don't have a `.gitignore` file!" \*\***
+**\* At this point, VSCode was like "Holy shit, Dupont... You don't have a `.gitignore` file!"**
+
 Even offered to create it for me and add `node_modules` to it.
 
 Do that.
@@ -178,13 +179,13 @@ $ eslint --cache --fix src/*
 ✨  Done in 2.40s.
 ```
 
-- Don't forget to add _`.eslintcache`_ to your _`.gitignore`_
+\* Don't forget to add _`.eslintcache`_ to _`.gitignore`_
 
 ## Compiling and bundling
 
 As mentioned above, I'll be using `esbuild-loader` to do the compilation but sticking with `webpack` for the bundling. If I run into issues with esbuild and my module federation, I may switch to babel. For now, this is it.
 
-#### Webpack, the Dev Server
+#### Webpack and the Dev Server
 
 ```
 yarn add -D webpack wepback-cli webpack-dev-server
@@ -192,7 +193,7 @@ yarn add -D webpack wepback-cli webpack-dev-server
 
 #### HtmlWebpackPlugin
 
-This plugin is what puts together our output html file, loaded with our bundle(s)
+This plugin is what puts together my output html file, loaded with my bundle(s)
 
 ```
 yarn add -D html-webpack-plugin
@@ -206,7 +207,7 @@ yarn add -D esbuild esbuild-loader
 
 #### The config file
 
-- Apparently we can use a Typescript for our config file if we install `ts-node`. I'm going to try that.
+\* Apparently I can use a Typescript for my config file if I install `ts-node`. I'm going to try that.
 
 ```
 yarn add -D ts-node @types/node

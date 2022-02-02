@@ -55,7 +55,7 @@ Now I can see my Domain names, Record Names, Record Types and Records Values. It
 
 I make my way over to the Domain Manager in my Rebel account, select my domain and _Manage Advanced DNS Records_. Here, I add one **CNAME** record from the data in my `.csv`. Again, it's only one unique value.
 
-The key is that the host/alias/name/whatever field should contain the _CNAME name_ from the file, **not** your custom domain. This CNAME is strictly for certificate validation. The value is the value. Save.
+\* The key is that the host/alias/name/whatever field should contain the _CNAME name_ from the file, **not** your custom domain. This CNAME is strictly for certificate validation. The value is the value. Save.
 
 I've read this can take a while.
 
