@@ -53,7 +53,9 @@ I'll _Export to CSV_ under the _Domains_ section to get my records. I don't feel
 
 Now I can see my Domain names, Record Names, Record Types and Records Values. It's the same cert, so the data is identical for both domains listed.
 
-I make my way over to the Domain Manager in my Rebel account, select my domain and _Manage Advanced DNS Records_. Here, I add two **CNAME** records matching the Domains in my `.csv` and the respective Record Values. Save.
+I make my way over to the Domain Manager in my Rebel account, select my domain and _Manage Advanced DNS Records_. Here, I add one **CNAME** record from the data in my `.csv`. Again, it's only one unique value.
+
+The key is that the host/alias/name/whatever field should contain the _CNAME name_ from the file, **not** your custom domain. This CNAME is strictly for certificate validation. The value is the value. Save.
 
 I've read this can take a while.
 
@@ -61,4 +63,14 @@ I've read this can take a while.
 
 Okay, so at some point in the last hour, the ACM certificate I requested appeared in the _Custom SSL certificates_ dropdown in the CloudFront distribution settings way back at the start of this ordeal. I'll select that one and finally save my changes.
 
-It takes a while for DNS settings to take effect.
+At this point, my Cloudfront distribution shows the two _Alternate domain names_ as well as the _Custom SSL certificate_.
+
+The last thing I'll do is head back to Rebel and create another pair of CNAME records. One for each alternate domain I had listed in the distribution.
+
+This time, the alias/name/etc... is the alternate domain and the _Distribution domain name_ is the value. Same value for both.
+
+... wait a bit for the TTL to elapse.
+
+## Done!
+
+[matdupont.dev](https://matdupont.dev)
