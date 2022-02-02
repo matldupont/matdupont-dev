@@ -17,6 +17,10 @@ module.exports = {
           target: 'es2015',
         },
       },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
     ],
   },
   resolve: {

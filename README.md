@@ -21,3 +21,7 @@ As I build out my site, I'll be trying out new ideas and mashing up a bunch of t
 [Jan 31, 2011 - Setting up my custom domain and SSL](https://github.com/matldupont/matdupont-dev/blob/main/blog/220131/01-custom-domain.md)
 
 [Jan 31, 2011 - Automating my deployments](https://github.com/matldupont/matdupont-dev/blob/main/blog/220131/02-automated-deployments.md)
+
+## Homepage
+
+[Feb 1, 2022 - Some ideas, CSS Strategy and Tooling](https://github.com/matldupont/matdupont-dev/blob/main/blog/220201/01-homepage.md)

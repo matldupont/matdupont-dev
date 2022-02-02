@@ -1,12 +1,13 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import './main.css';
 
 function App() {
   return (
-    <>
-      <h1>MatDupont.dev</h1>
-      <h2>Waddup, Mataverse?</h2>
-    </>
+    <div className="bg-gray-900">
+      <h1 className="text-slate-100">MatDupont.dev</h1>
+      <h2 className="text-slate-400">Waddup, Mataverse?</h2>
+    </div>
   );
 }
 
