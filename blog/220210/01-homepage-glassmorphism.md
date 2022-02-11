@@ -4,15 +4,15 @@ Okay, time to get going and make this page something to look at.
 
 ## The Background Image
 
-Based on what I'm ready about with this Glassmorphism stuff, it really helps to have a nice background image or a few gradients. I'll go with a kill image.
+Based on what I'm reading about with this Glassmorphism stuff, it really helps to have a nice background image or a few gradients. I'll go with a killer image.
 
-My go for wallpapers usually ends up being some scenic view from Iceland. Don't get me started on that place. It's the coolest.
+My go-to for wallpapers usually ends up being some scenic view from Iceland. Don't get me started on that place. It's the coolest. 😏
 
 Anyway, I found a really good one.
 
 There seems to be a few different ways to set [background images in TWCSS](https://tailwindcss.com/docs/background-image#customizing-your-theme)
 
-I don't really feel like hard coding the path in my homepage component and I want to learn more about **Customizing my theme**, so I'll go that route rather than using the **Arbitrary values** pattern.
+I don't really feel like hard coding the path in my `<HomePage />` component and I want to learn more about **Customizing my theme**, so I'll go that route rather than using the **Arbitrary values** pattern.
 
 I'll extend the _`tailwind.config.js`_ file to include a `backgroundImage` called `homepage-image`:
 
@@ -20,15 +20,15 @@ I'll extend the _`tailwind.config.js`_ file to include a `backgroundImage` calle
 ...
    extend: {
       backgroundImage: {
-        'homepage-image': 'url(./assets/iceland-dark.jpeg)',
+        'homepage-image': 'url(./assets/iceland-light.jpeg)',
       },
     },
 ...
 ```
 
-What this does is give me access to a new css class called `bg-home-image`. With Intellisense to boot. Sick!
+What this does is give me access to a new css class called `bg-homepage-image`. With Intellisense to boot. Sick!
 
-I actually want this on my `<body />` tag, so I'll put that in my _`main.css`_ file.
+I actually want this on my `<body />` tag for now, so I'll put that in my _`main.css`_ file.
 
 ```css
 @tailwind base;
@@ -42,7 +42,7 @@ I actually want this on my `<body />` tag, so I'll put that in my _`main.css`_ f
 }
 ```
 
-This sets a background color (#090400) in case my image doesn't load, then sets the `bg-homepage-image` from my theme to cover with no repeat.
+This sets a background color (#090400) in case my image doesn't load, then sets the `bg-homepage-image` from my theme to `cover` with `no-repeat`.
 
 ![Initial Background](initial-background.png)
 
@@ -74,7 +74,7 @@ export function HomePage() {
 
 Next, I want to replace my name along with the rest of that stuff with something a bit more friendly and welcoming.
 
-I also what keep accessibility (a11y) in mind, so I'll use an `<h1 />`. This is the one and only `h1` on this page and serves as the (semantic) main title of my page. I'll dive deeper into a11y as I build. **It's important**
+I also want to keep accessibility (a11y) in mind, so I'll use an `<h1 />`. This is the one and only `h1` on this page and serves as the (semantic) main title of my page. I'll dive deeper into a11y as I build. **It's important.**
 
 The other thing I'm doing is including a `<span />` tag inside the heading. This lets me style parts of the text differently, while keeping it all together for a screen reader.
 
@@ -150,7 +150,7 @@ This is looking better. I especially like the way I can adjust the opacity on th
 
 ## Glassmorphism
 
-The trick behind Glassmorphism is to use the [backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter) along with some opacity, box-shadow and a border (particularly on a dark background).
+The trick behind Glassmorphism is to use the [backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter) along with some `opacity`, `box-shadow` and a `border` (particularly on a dark background).
 
 Now, this first example is my light mode. I'll be doing dark mode second.
 
@@ -182,23 +182,23 @@ It's pretty subtle, but it's there. Pretty cool!
 
 ## Dark Mode Glassmorphism
 
-For this one, I'll get to see if Tailwind really shines by using `dark:` prefix.
+For this one, I'll get to see how Tailwind really shines by using the `dark:` prefix.
 
 My computer is typically set to dark theme and that's what Tailwind looks at to decide which styles should be applied. So far, I just didn't have any dark-specific classes.
 
-First, I'll change the background. Here's are the base (light) classes followed by their respective dark classes:
+First, I'll change the background of the card. Here are the base (light) classes followed by their respective dark classes:
 
 ```css
-bg-white dark:bg-black dark:bg-opacity-20
+bg-white dark:bg-black bg-opacity-70 dark:bg-opacity-20
 ```
 
 Next, I'll adjust the text color to white.
 
 ```css
-// h1
+/* h1 */
 text-neutral-700 dark:text-neutral-200
 
-// span
+/* span */
 text-slate-600 dark:text-neutral-400
 
 ```
@@ -207,7 +207,7 @@ text-slate-600 dark:text-neutral-400
 
 ![Dark Glassmorphism](dark-glass-1.png)
 
-I think I can still do a bit better. Something that **pops**! A background swap!
+I think I can still do a bit better. Something that **pops**. A background swap!
 
 Back to the _`tailwind.config.js`_ file, I'll rename my current `backgroundImage` and add my dark theme version.
 
@@ -243,10 +243,10 @@ Same image, different season!
 A few little tweaks to bring out some of the colours from the background:
 
 ```cs
-// img
+/* img */
 border-slate-600/50 dark:border-yellow-600/50
 
-// span
+/* span */
 text-slate-600 dark:text-amber-400
 ```
 
