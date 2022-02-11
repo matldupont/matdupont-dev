@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
+  extends: ['plugin:react/recommended', 'airbnb', 'airbnb-typescript', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -18,6 +18,9 @@ module.exports = {
     'prettier/prettier': ['error'],
     'react/prop-types': ['off'],
     'react/require-default-props': ['off'],
+    'react/react-in-jsx-scope': 'off',
+    'import/prefer-default-export': ['off'],
+    'react/jsx-curly-brace-presence': ['off'],
   },
   overrides: [
     {
@@ -29,6 +32,19 @@ module.exports = {
             devDependencies: ['**/*.config.js'],
           },
         ],
+      },
+    },
+    {
+      files: ['**/*.ts?(x)'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: './tsconfig.json',
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
+        warnOnUnsupportedTypeScriptVersion: true,
       },
     },
   ],

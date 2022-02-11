@@ -1,7 +1,12 @@
 module.exports = {
   content: ['./src/**/*.tsx'],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'homepage-image-light': 'url(./assets/iceland-light.jpeg)',
+        'homepage-image-dark': 'url(./assets/iceland-dark.jpeg)',
+      },
+    },
   },
   plugins: [],
 };

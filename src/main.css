@@ -3,11 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    @apply dark:bg-red-900 bg-red-300;
-  }
-
   body {
-    @apply min-h-screen bg-slate-500 dark:bg-neutral-900;
+    @apply min-h-screen  bg-[#090400] bg-homepage-image-light dark:bg-homepage-image-dark bg-cover bg-no-repeat;
   }
 }

@@ -1,30 +1,23 @@
 import Headshot from '../assets/headshot.jpg';
 
-export const HomePage = () => {
+export function HomePage() {
   return (
-    <div className="bg-gray-900">
-      <h1 className="text-slate-100">MatDupont.dev</h1>
-      <h2 className="text-slate-400 bg-blue-800">Waddup, Mataverse?</h2>
-
-      <div className="py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
+    <div className="min-h-screen max-w-screen-xl mx-auto flex justify-center items-center">
+      <div className="px-8 border flex backdrop-blur-sm backdrop-brightness-50  bg-opacity-70 bg-white dark:bg-black dark:bg-opacity-20 backdrop-saturate-150 border-neutral-200/25  max-w-xl mx-auto  rounded-xl shadow-lg py-4  items-center space-y-0 space-x-6">
         <img
-          className="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0"
+          className="block rounded-full mx-0 shrink-0 w-48 border-4 border-slate-600/50 dark:border-yellow-600/50"
           src={Headshot}
           alt="Mat's headshot"
         />
-        <div className="text-center space-y-2 sm:text-left">
+        <div className=" align-top flex flex-column justify-start space-y-2 text-left">
           <div className="space-y-0.5">
-            <p className="text-lg text-black font-semibold">Mat Dupont</p>
-            <p className="text-slate-500 font-medium">Senior Engineer</p>
+            <h1 className="text-neutral-700 dark:text-neutral-200 font-semibold text-3xl">
+              {`Hi, I'm Mat Dupont 👋`}
+              <span className="text-xl text-slate-600 dark:text-amber-400 font-medium">{`Welcome to my playground`}</span>
+            </h1>
           </div>
-          <button
-            type="button"
-            className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
-          >
-            Message
-          </button>
         </div>
       </div>
     </div>
   );
-};
+}

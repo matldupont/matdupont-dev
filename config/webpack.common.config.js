@@ -1,4 +1,4 @@
-const { HotModuleReplacementPlugin } = require('webpack');
+const { HotModuleReplacementPlugin, ProvidePlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
@@ -40,5 +40,8 @@ module.exports = {
       extensions: ['ts', 'tsx'],
     }),
     new CleanWebpackPlugin(),
+    new ProvidePlugin({
+      React: 'react',
+    }),
   ],
 };

@@ -24,8 +24,12 @@ As I build out my site, I'll be trying out new ideas and mashing up a bunch of t
 
 ## Homepage
 
-[Feb 1, 2022 - Some ideas, CSS Strategy and Tooling](https://github.com/matldupont/matdupont-dev/blob/main/blog/220201/01-homepage.md)
+[Feb 1, 2022 - Some ideas, CSS Strategy and Tooling](https://github.com/matldupont/matdupont-dev/blob/main/blog/220201/01-homepage-tooling.md)
 
 [Feb 6, 2022 - TailwindCSS Editor Setup](https://github.com/matldupont/matdupont-dev/blob/main/blog/220206/01-tailwindcss.md)
 
 [Feb 6, 2002 - Image Loading](https://github.com/matldupont/matdupont-dev/blob/main/blog/220206/02-images.md)
+
+[Feb 9, 2002 - Homepage](https://github.com/matldupont/matdupont-dev/blob/main/blog/220209/01-homepage-issues.md)
+
+[Feb 10, 2002 - Homepage + Glassmorphism](https://github.com/matldupont/matdupont-dev/blob/main/blog/220210/01-homepage-glassmorphism.md)
