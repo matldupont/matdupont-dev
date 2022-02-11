@@ -101,6 +101,17 @@ I'm not a fan, so I'm killing that rule.
   'react/jsx-curly-brace-presence': ['off'],
 ```
 
+```html
+<div className=" align-top flex flex-column justify-start space-y-2 text-left">
+  <div className="space-y-0.5">
+    <h1 className="text-neutral-700 font-semibold ">
+      {`Hi, I'm Mat Dupont 👋`}
+      <span className="text-slate-600 font-medium">Welcome to my playground</span>
+    </h1>
+  </div>
+</div>
+```
+
 **Got it!**
 
 ![Headings](headings.png)
