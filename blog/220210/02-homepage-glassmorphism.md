@@ -243,10 +243,4 @@ text-slate-600 dark:text-amber-400
 
 ![Dark Glassmorphism accents](dark-glass-3.png)
 
-## Dark theme toggle
-
-One last thing I want to see is how well it toggles when I adjust my OS settings.
-
-Let's see!
-
-![Theme Change](theme-change.mov)
+## Next up, Lighthouse Audit!
