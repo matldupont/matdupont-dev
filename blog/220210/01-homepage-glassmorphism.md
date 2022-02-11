@@ -120,7 +120,7 @@ I'm not a fan, so I'm killing that rule.
 
 It's looking pretty small and lonely in the middle, there. I think I'll amp up the head shot size as well as the text.
 
-While I'm at it, I want a nice border around that image. Looks a little dry as-is.
+While I'm at it, I want a nice border around that image. Looks a little dry, as-is.
 
 ```html
 <div className="min-h-screen max-w-screen-xl mx-auto flex justify-center items-center">
@@ -253,5 +253,3 @@ text-slate-600 dark:text-amber-400
 **I dig it!**
 
 ![Dark Glassmorphism accents](dark-glass-3.png)
-
-## Next up, Lighthouse Audit!
