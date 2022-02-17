@@ -33,3 +33,5 @@ As I build out my site, I'll be trying out new ideas and mashing up a bunch of t
 [Feb 9, 2002 - Homepage](https://github.com/matldupont/matdupont-dev/blob/main/blog/220209/01-homepage-issues.md)
 
 [Feb 10, 2002 - Homepage + Glassmorphism](https://github.com/matldupont/matdupont-dev/blob/main/blog/220210/01-homepage-glassmorphism.md)
+
+[Feb 10, 2002 - Homepage + Glassmorphism](https://github.com/matldupont/matdupont-dev/blob/main/blog/220216/01-twcss-prettier.md)
