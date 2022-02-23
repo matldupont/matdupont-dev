@@ -28,10 +28,14 @@ As I build out my site, I'll be trying out new ideas and mashing up a bunch of t
 
 [Feb 6, 2022 - TailwindCSS Editor Setup](https://github.com/matldupont/matdupont-dev/blob/main/blog/220206/01-tailwindcss.md)
 
-[Feb 6, 2002 - Image Loading](https://github.com/matldupont/matdupont-dev/blob/main/blog/220206/02-images.md)
+[Feb 6, 2022 - Image Loading](https://github.com/matldupont/matdupont-dev/blob/main/blog/220206/02-images.md)
 
-[Feb 9, 2002 - Homepage](https://github.com/matldupont/matdupont-dev/blob/main/blog/220209/01-homepage-issues.md)
+[Feb 9, 2022 - Homepage](https://github.com/matldupont/matdupont-dev/blob/main/blog/220209/01-homepage-issues.md)
 
-[Feb 10, 2002 - Homepage + Glassmorphism](https://github.com/matldupont/matdupont-dev/blob/main/blog/220210/01-homepage-glassmorphism.md)
+[Feb 10, 2022 - Homepage + Glassmorphism](https://github.com/matldupont/matdupont-dev/blob/main/blog/220210/01-homepage-glassmorphism.md)
 
-[Feb 10, 2002 - Homepage + Glassmorphism](https://github.com/matldupont/matdupont-dev/blob/main/blog/220216/01-twcss-prettier.md)
+[Feb 16, 2022 - TailwindCSS + Prettier](https://github.com/matldupont/matdupont-dev/blob/main/blog/220216/01-twcss-prettier.md)
+
+## Performance
+
+[Feb 22, 2022 - Lighthouse Audits](https://github.com/matldupont/matdupont-dev/blob/main/blog/220222/01-lighthouse.md)
