@@ -1,5 +1,9 @@
 # Audit improvements
 
+Time to start nailing these audit scores!
+
+![Audit before improvements](audit-before.png)
+
 ## Accessibility
 
 I only seem to have one glaring a11y issue, so I'll knock that one out right away.
@@ -190,3 +194,13 @@ export function HomePage() {
 ```
 
 This allows me to set both a title and description specific to the page.
+
+I'll remove the `<meta name="description" ...>` tag from \_`/src/index.html` file. I don't even want a default in there. I'll touch on this when I start talking about automated Lighthouse testing in the CICD.
+
+## Audit Check-in
+
+A final check for the night. Looking better!
+
+![audit improvements with A11y, Best Practices and SEO](audit-scores.png)
+
+Next up, performance and image optimization!
