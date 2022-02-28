@@ -61,3 +61,69 @@ plugins: [
 ]
 ...
 ```
+
+This time, I do want to redeploy and see how this change fares in the wild.
+
+New tab, who dis?
+
+![Chrome tab is favicon](chrome-tab.png)
+
+Maybe I'll make it circular down the road. This is cool, though.
+
+Time for another audit!
+
+![100% Best Practices Audit](best-practices-100.png)
+
+**Alright!**
+
+## SEO
+
+As explained in the [previous post](https://github.com/matldupont/matdupont-dev/blob/main/blog/220227/01-lighthouse.md), most of my SEO issues step from a lack of mobile-specific configuration.
+
+I mean... it's not mobile friendly at all.
+
+![Site on mobile looks horrible](mobile-before.png)
+
+The audit is helpful enough in explaining what's missing.
+
+![Missing meta viewport details](meta-viewport.png)
+
+So, I'll head over _`/src/index.html`_ and add to the `<head>` tag.
+
+```html
+...
+<head>
+  <meta charset="utf-8" />
+  <title>MatDupont.dev</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+...
+```
+
+This tells the browser to fit the content to the device's width with no change to the scale.
+
+**GOOD GOD!** That's ugly!
+
+![Mobile friendly but ugly site](mobile-after.png)
+
+But... it's working.
+
+The remaining mobile-specific issues had to do with the tiny font size based on the viewport width. Fixing the viewport actually fixed those issues as well.
+
+![SEO description issue](seo-description.png)
+
+I'll add another `<meta>` tag for this in the `<head>`:
+
+```html
+...
+<head>
+  <meta charset="utf-8" />
+  <title>MatDupont.dev</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="MatDupont.dev homepage. Welcome to my Playground. I hope it's even a little helpful."
+  />
+</head>
+...
+```
