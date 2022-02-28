@@ -6,13 +6,13 @@ I swear, I didn't knowingly use any massive, unoptimized images or forget to mak
 
 ## The First Audit
 
+> Make sure you run the audit on your deployed code, not your dev server. Otherwise, you may go chasing imaginary preformance issues.
+
 I'll open up DevTools and kick off the first audit. **Generate report!**
 
 ![Lighthouse pane](lighthouse-0.png)
 
-😐
-
-I mean... I guess it could be worse? 100 for Best Practices!
+Not bad!
 
 ![Lighthouse Audit #1](lighthouse-1.png)
 
@@ -20,7 +20,7 @@ Let's dive in.
 
 ## Performance
 
-It looks like the big culprits are _**Time to Interactive**_, _**Total Blocking Time**_ and _**Largest Contentful Paint**_.
+It looks like the main culprit is _**Time to Interactive**_.
 
 ![Lighthouse Performance #1](performance-1.png)
 

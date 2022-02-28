@@ -39,3 +39,7 @@ As I build out my site, I'll be trying out new ideas and mashing up a bunch of t
 ## Performance
 
 [Feb 22, 2022 - Lighthouse Audits](https://github.com/matldupont/matdupont-dev/blob/main/blog/220222/01-lighthouse.md)
+
+[Feb 27, 2022 - Lighthouse A11y, SEO, Best Practices and PWA](https://github.com/matldupont/matdupont-dev/blob/main/blog/220227/01-lighthouse.md)
+
+[Feb 27, 2022 - Audit Improvements](https://github.com/matldupont/matdupont-dev/blob/main/blog/220227/02-improvements.md)
