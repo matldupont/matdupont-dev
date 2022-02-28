@@ -127,3 +127,66 @@ I'll add another `<meta>` tag for this in the `<head>`:
 </head>
 ...
 ```
+
+**Nice!**
+
+![100% SEO Audit](seo-100.png)
+
+### Meta tag like you mean it
+
+Now, I've hardcoded the page description right in _`/src/index.html`_. This isn't going to work once I add a second page, and I do plan on doing more.
+
+Time to jump back into some React.
+
+What I want to do is have control over elements inside the `<head>` tag from within my page components. For this, I'll be using `react-helmet-async`.
+
+```sh
+yarn add react-helmet-async
+```
+
+```sh
+yarn add -D @types/react-helmet-async
+```
+
+First, I'll add the `<HelmetProvider>` to the \_`/src/index.tsx`:
+
+```js
+...
+import { HelmetProvider } from 'react-helmet-async';
+...
+
+ReactDOM.render(
+  <React.StrictMode>
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+
+Then, I'll add a fragment (`<>...</>`) around the jsx in \_`/src/pages/home.tsx` and add the `<Helmet>` as a sibling to my content:
+
+```js
+import { Helmet } from 'react-helmet-async';
+...
+
+export function HomePage() {
+  return (
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>MatDupont.dev | Home</title>
+        <meta
+          name="description"
+          content="MatDupont.dev homepage. Welcome to my Playground. I hope it's even a little helpful."
+        />
+      </Helmet>
+      <div>
+      ....
+      </div>
+    </>
+  );
+```
+
+This allows me to set both a title and description specific to the page.
