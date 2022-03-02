@@ -201,6 +201,6 @@ I'll remove the `<meta name="description" ...>` tag from \_`/src/index.html` fil
 
 A final check for the night. Looking better!
 
-![audit improvements with A11y, Best Practices and SEO](audit-scores.png)
+![audit improvements with A11y, Best Practices and SEO](audit-after.png)
 
 Next up, performance and image optimization!
