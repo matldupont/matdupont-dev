@@ -19,6 +19,8 @@ export function HomePage() {
             className="mx-0 block h-48 w-48 shrink-0 rounded-full border-4 border-slate-600/50 dark:border-yellow-600/50"
             src={Headshot}
             alt="Mat's headshot"
+            height={48}
+            width={48}
           />
           <div className=" flex-column flex justify-start space-y-2 text-left align-top">
             <div className="space-y-0.5">
