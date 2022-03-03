@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const { extendDefaultPlugins } = require('svgo');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -22,7 +24,7 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
-        test: /\.(png|jpg|jpeg|gif)$/i,
+        test: /\.(jpe?g|png|gif|svg)$/i,
         type: 'asset/resource',
       },
     ],
@@ -45,4 +47,21 @@ module.exports = {
       React: 'react',
     }),
   ],
+  optimization: {
+    minimizer: [
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminGenerate,
+          options: {
+            plugins: [
+              ['gifsicle', { interlaced: true }],
+              ['mozjpeg', { progressive: true, quality: 40 }],
+              ['pngquant', { optimizationLevel: 5 }],
+              ['svgo', 'preset-default'],
+            ],
+          },
+        },
+      }),
+    ],
+  },
 };
