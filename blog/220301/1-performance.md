@@ -259,4 +259,8 @@ This is actually pretty decent and still below the asset limit of 250kB.
 
 File sizes: ~270-300kB
 
-![30% quality isn't bad](40-percent.png)
+![40% quality is nicer, but too big](40-percent.png)
+
+This looks good, but I'm past that limit. Now, this is just the Webpack limit. I have run the audit to see what kind of performance score I get with this.
+
+I'll leave it at 40 and see how that goes.
