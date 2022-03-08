@@ -273,8 +273,7 @@ I'm still using an image significantly larger that the height and width I'm rend
 
 ![Image size is still a problem](better-image-size.png)
 
-The original image is 1258x1258, but I'm showing it as 200x200. This warning is telling me to just size it accordingly for best results.
-
+The original image is 1258x1258, but I'm showing it as 200x200. This warning is telling me to just sizå
 Using an image resizing app I [found online](http://www.simpleimageresizer.com/), I generate my new, smaller image.
 
 Once it's in my assets folder, I can adjust _`src/pages/home.tsx`_:
@@ -282,3 +281,15 @@ Once it's in my assets folder, I can adjust _`src/pages/home.tsx`_:
 ```js
 import Headshot from '../assets/headshot-small.jpeg';
 ```
+
+#### Image Best Practices
+
+After another audit, my performnace score is upå to 95 **but** my best practices score has dropped to 92! **What gives?!**
+
+![Low Resolution Image is a problem](image-best-practices.png)
+
+Here's where images start to add a bit of complexity. The `<img>` tag takes the base file name as its `src` attribute, but also `srcset` and `sizes` attributes for responsiveness. These can be used to either show a different image for different viewports (a la art direction), or use images with different resolutions based on the device's display resolution.
+
+First, I'll go ahead and create another image resuze from the original for 400x400 and 600x600 and rename ny files accordingly.
+
+![Image resolutions](image-resolutions.png)
