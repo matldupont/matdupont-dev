@@ -1,4 +1,4 @@
-# Audit improvements
+# Lighthouse Audit Improvements
 
 Time to start nailing these audit scores!
 
