@@ -264,3 +264,7 @@ File sizes: ~270-300kB
 This looks good, but I'm past that limit. Now, this is just the Webpack limit. I have run the audit to see what kind of performance score I get with this.
 
 I'll leave it at 40 and see how that goes.
+
+![Almost a perfect Lighthouse Audit](audit-after-2.png)
+
+I mean... it's pretty good.
