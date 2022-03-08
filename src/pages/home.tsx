@@ -22,7 +22,7 @@ export function HomePage() {
             alt="Mat's headshot"
             height={48}
             width={48}
-            srcSet={`${Headshot200}, ${Headshot400} 1.5x, ${Headshot600} 2x`}
+            srcSet={`${Headshot200} 1x, ${Headshot400} 2x, ${Headshot600} 3x`}
             src={Headshot400}
           />
           <div className=" flex-column flex justify-start space-y-2 text-left align-top">
