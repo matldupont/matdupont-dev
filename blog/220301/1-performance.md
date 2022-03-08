@@ -1,4 +1,4 @@
-# Lighthouse Audit Improvements
+# Lighthouse Performance and Images
 
 At the end of the [previous post](https://github.com/matldupont/matdupont-dev/blob/main/blog/220227/02-improvements.md), things were really starting to shape up:
 
