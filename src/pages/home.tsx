@@ -19,11 +19,11 @@ export function HomePage() {
         <div className="mx-auto flex max-w-xl items-center space-y-0 space-x-6 rounded-xl border border-neutral-200/25 bg-white bg-opacity-70  px-8 py-4  shadow-lg backdrop-blur-sm backdrop-brightness-50  backdrop-saturate-150 dark:bg-black dark:bg-opacity-20">
           <img
             className="mx-0 block h-48 w-48 shrink-0 rounded-full border-4 border-slate-600/50 dark:border-yellow-600/50"
-            src={Headshot200}
             alt="Mat's headshot"
             height={48}
             width={48}
             srcSet={`${Headshot200}, ${Headshot400} 1.5x, ${Headshot600} 2x`}
+            src={Headshot400}
           />
           <div className=" flex-column flex justify-start space-y-2 text-left align-top">
             <div className="space-y-0.5">
