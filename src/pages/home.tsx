@@ -1,5 +1,4 @@
 import { Helmet } from 'react-helmet-async';
-import Headshot200 from '../assets/headshot-200w.jpeg';
 import Headshot400 from '../assets/headshot-400w.jpeg';
 import Headshot600 from '../assets/headshot-600w.jpeg';
 
