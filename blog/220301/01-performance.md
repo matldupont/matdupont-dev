@@ -267,4 +267,18 @@ I'll leave it at 40 and see how that goes.
 
 ![Almost a perfect Lighthouse Audit](audit-after-2.png)
 
-I mean... it's pretty good.
+I mean... it's pretty good, but it could be better.
+
+I'm still using an image significantly larger that the height and width I'm rendering for the headshot.
+
+![Image size is still a problem](better-image-size.png)
+
+The original image is 1258x1258, but I'm showing it as 200x200. This warning is telling me to just size it accordingly for best results.
+
+Using an image resizing app I [found online](http://www.simpleimageresizer.com/), I generate my new, smaller image.
+
+Once it's in my assets folder, I can adjust _`src/pages/home.tsx`_:
+
+```js
+import Headshot from '../assets/headshot-small.jpeg';
+```

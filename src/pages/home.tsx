@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import Headshot from '../assets/headshot.jpg';
+import Headshot from '../assets/headshot-small.jpeg';
 
 export function HomePage() {
   return (
