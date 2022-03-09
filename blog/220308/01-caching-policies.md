@@ -1,4 +1,4 @@
-# Cache policy and minification
+# Cache policies and headers
 
 Before continuing with the Opportunities in reducing my JavaScript, I'd like to addressing the issue with my caching policy (or lack thereof).
 
