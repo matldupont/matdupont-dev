@@ -293,3 +293,36 @@ Here's where images start to add a bit of complexity. The `<img>` tag takes the 
 First, I'll go ahead and create another image resuze from the original for 400x400 and 600x600 and rename ny files accordingly.
 
 ![Image resolutions](image-resolutions.png)
+
+I'm not going to use the 200w and 1258w versions as they're too low quality or way too big. That leaves me with **400w** and **600w**.
+
+_`src/pages/home.tsx`_:
+
+```js
+import Headshot400 from '../assets/headshot-400w.jpeg';
+import Headshot600 from '../assets/headshot-600w.jpeg';
+...
+ <img
+  className="mx-0 block h-48 w-48 shrink-0 rounded-full border-4 border-slate-600/50 dark:border-yellow-600/50"
+  alt="Mat's headshot"
+  height={48}
+  width={48}
+  srcSet={`${Headshot400} 1x, ${Headshot600} 2x`}
+  src={Headshot400}
+/>
+...
+```
+
+I'll be using the 400w version for devices with lower pixel ratios and the 600w one for anything higher. I'm developing on a Mackbook Pro with an external monitor so I can test both resolutions.
+
+On my desktop monitor with a lower dpr, I see that I'm using the lower quality image by looking at the img tags `currentSrc` property:
+
+![Lower quality on 1x dpr](headshot1x.png)
+
+Now, I can do the same on my MBP's retina screen:
+
+![Higher quality on 2x drp](headshot2x.png).
+
+Now if I run the audit again, I'm back up to a score of 100 for Best Practices.
+
+![Audit is back to 100 for Best practices](audit-after-3.png)
