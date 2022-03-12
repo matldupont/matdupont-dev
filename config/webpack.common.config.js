@@ -5,6 +5,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const { extendDefaultPlugins } = require('svgo');
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -21,7 +22,18 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'esbuild-loader',
+            options: {
+              loader: 'css',
+              minify: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
@@ -62,6 +74,7 @@ module.exports = {
           },
         },
       }),
+      new ESBuildMinifyPlugin(),
     ],
   },
 };
