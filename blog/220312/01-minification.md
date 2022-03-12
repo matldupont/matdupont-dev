@@ -40,3 +40,35 @@ I currently have just the one bundle file, which is something I'll address next,
 Down ~24%! I like that.
 
 This _may_ help my score, but there's more I can do here.
+
+## Code splitting and chunking
+
+As I mentioned earlier, I only have one page at this point. As it stands, I only have a single bundle as well. It includes all my code, but also all the necessary React and TailwindCSS. There's a balance to be struck between multiple small fetches and a single larger fetch.
+
+That being said, I'll definitely be adding more components and pages. I won't want my entire site to exist in a single, massive bundle as the site grows, so I'll be leveraging as much code-splitting as possible.
+
+I'm not in a position to start playing with lazy-loaded components, so I'll stick to ways I can improve my current builds.
+
+#### Node Modules
+
+The biggest thing I can do at this point is separate my vendor code (node*modules) from my application code but using split chunks in *`webpack.common.config.js`\_
+
+```js
+...
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/, ///< put all used node_modules modules in this chunk
+          name: "vendor", ///< name of bundle
+          chunks: "all" ///< type of code to put in this bundle
+        }
+      }
+    }
+  },
+...
+```
+
+I now have two bundles. One for my application code (`main.[contentHash].js`) and dependencies (`vendor.[contentHash].js`)
+
+![Separate main and vendor bundles](split-chunks.png)

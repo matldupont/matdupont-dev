@@ -60,6 +60,15 @@ module.exports = {
     }),
   ],
   optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/, ///< put all used node_modules modules in this chunk
+          name: 'vendor', ///< name of bundle
+          chunks: 'all', ///< type of code to put in this bundle
+        },
+      },
+    },
     minimizer: [
       new ImageMinimizerPlugin({
         minimizer: {
