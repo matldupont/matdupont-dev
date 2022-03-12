@@ -59,7 +59,6 @@ module.exports = {
     new ProvidePlugin({
       React: 'react',
     }),
-    // new CompressionPlugin(),
   ],
   optimization: {
     runtimeChunk: 'single',

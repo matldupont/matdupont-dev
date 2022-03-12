@@ -1,4 +1,4 @@
-# Code Minification
+# Code Minification, Splitting and Compression
 
 Now that I have my caching in order as well as image optimization, it's time to get back to the code. The remaining recommendations I'm getting from Lighthouse are in regards to the size of my bundles.
 
@@ -61,9 +61,9 @@ The biggest thing I can do at this point is separate my vendor code (node*module
     splitChunks: {
       cacheGroups: {
         vendors: {
-          test: /[\\/]node_modules[\\/]/, ///< put all used node_modules modules in this chunk
-          name: "vendor", ///< name of bundle
-          chunks: "all" ///< type of code to put in this bundle
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendor",
+          chunks: "all"
         }
       }
     }
@@ -109,6 +109,8 @@ optimization: {
 },
 ```
 
+Back to a score of 99 and no more unused JS warning!
+
 There's still one more thing I want to try before moving on the addressing the PWA metrics.
 
 ## Compression
@@ -139,3 +141,17 @@ plugins: [
 ],
 ...
 ```
+
+I now see all the compressed files alongside the originals. Now to deploy and run the audit.
+
+## The verdict
+
+As it turns out, this consistently gave me a score around 94 rather than the 99 I already had and affected the Largest Contentful Paint time.
+
+To be honest, I'm not 100% sure why that's happening, but I will say that since I have the **CachingOptimized** policy on my CloudFront distribution, I was already benefitting from compression.
+
+![Brotli encoding from CloudFront](brotli.png)
+
+Maybe it it's competing at this point? 🤷
+
+I'll remove the CompressionPlugin call it a day.
