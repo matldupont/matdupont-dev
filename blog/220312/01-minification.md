@@ -39,7 +39,9 @@ I currently have just the one bundle file, which is something I'll address next,
 
 Down ~24%! I like that.
 
-This _may_ help my score, but there's more I can do here.
+After another audit, my score hasn't really changed but the Opportunity warnings are gone.
+
+There's more I can do for the score here.
 
 ## Code splitting and chunking
 
@@ -76,6 +78,36 @@ I now have two bundles. One for my application code (`main.[contentHash].js`) an
 Now... I've done an another audit and I'm sitting pretty at a score of 99 for Performance.
 
 ![99 Peformance Lighthouse score](mid-audit.png)
+
+One thing I'm noticing is the "Reduce unused JavaScript" opportunity is back. This time, it's referring to the vendor file rather than the main file.
+
+After some more research, I see a recommendation to split the chunks further. In this case, I'll try splitting the node_modules as well.
+
+```js
+...
+optimization: {
+  ...
+  runtimeChunk: 'single',
+  splitChunks: {
+    chunks: 'all',
+    maxInitialRequests: Infinity,
+    minSize: 0,
+    cacheGroups: {
+      vendor: {
+        test: /[\\/]node_modules[\\/]/,
+        name(module) {
+          // get the name. E.g. node_modules/packageName/not/this/part.js
+          // or node_modules/packageName
+          const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+
+          // npm package names are URL-safe, but some servers don't like @ symbols
+          return `npm.${packageName.replace('@', '')}`;
+        },
+      },
+    },
+  },
+},
+```
 
 There's still one more thing I want to try before moving on the addressing the PWA metrics.
 

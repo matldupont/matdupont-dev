@@ -62,12 +62,22 @@ module.exports = {
     new CompressionPlugin(),
   ],
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
       cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/, ///< put all used node_modules modules in this chunk
-          name: 'vendor', ///< name of bundle
-          chunks: 'all', ///< type of code to put in this bundle
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            // get the name. E.g. node_modules/packageName/not/this/part.js
+            // or node_modules/packageName
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+
+            // npm package names are URL-safe, but some servers don't like @ symbols
+            return `npm.${packageName.replace('@', '')}`;
+          },
         },
       },
     },
