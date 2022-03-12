@@ -69,6 +69,41 @@ The biggest thing I can do at this point is separate my vendor code (node*module
 ...
 ```
 
-I now have two bundles. One for my application code (`main.[contentHash].js`) and dependencies (`vendor.[contentHash].js`)
+I now have two bundles. One for my application code (`main.[contentHash].js`) and dependencies (`vendor.[contentHash].js`). The file sizes are now 27KB and 153KB, respectively.
 
 ![Separate main and vendor bundles](split-chunks.png)
+
+Now... I've done an another audit and I'm sitting pretty at a score of 99 for Performance.
+
+![99 Peformance Lighthouse score](mid-audit.png)
+
+There's still one more thing I want to try before moving on the addressing the PWA metrics.
+
+## Compression
+
+The two big players in compression seem to be [gzip from GNU](https://www.gnu.org/software/gzip/) and [brotli from Google](https://github.com/google/brotli).
+
+The former is about 3 decades old while the latter is about 9 years old. With gzip being the tried and true method of compression, I'll give that a try first.
+
+In either case, I'll need to install the correct Webpack plugin.
+
+```sh
+yarn add -D compression-webpack-plugin
+```
+
+### gzip
+
+For the reasons stated above, `gzip` is the default `algorithm` for the **CompressionWebpackPlugin**. Not a whole lot to do here.
+
+_`webpack.common.config.js`_:
+
+```js
+const CompressionPlugin = require("compression-webpack-plugin");
+
+...
+plugins: [
+  ...
+  new CompressionPlugin()
+],
+...
+```

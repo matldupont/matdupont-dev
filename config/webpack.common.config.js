@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const { extendDefaultPlugins } = require('svgo');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -58,6 +59,7 @@ module.exports = {
     new ProvidePlugin({
       React: 'react',
     }),
+    new CompressionPlugin(),
   ],
   optimization: {
     splitChunks: {
