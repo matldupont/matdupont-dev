@@ -63,6 +63,9 @@ module.exports = {
       name: 'MatDupont.dev',
       short_name: 'MatDupont.dev',
       description: "Mat Dupont's personal site and playground",
+      orientation: 'portrait',
+      display: 'standalone',
+      start_url: '.',
       background_color: '#1e150e',
       crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
       icons: [
