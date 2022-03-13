@@ -1,11 +1,12 @@
+const path = require('path');
 const { HotModuleReplacementPlugin, ProvidePlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
-const { extendDefaultPlugins } = require('svgo');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -57,6 +58,23 @@ module.exports = {
     new CleanWebpackPlugin(),
     new ProvidePlugin({
       React: 'react',
+    }),
+    new WebpackPwaManifest({
+      name: 'MatDupont.dev',
+      short_name: 'MatDupont.dev',
+      description: "Mat Dupont's personal site and playground",
+      background_color: '#1e150e',
+      crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+      icons: [
+        {
+          src: path.resolve('src/assets/headshot-600w.jpeg'),
+          sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+        },
+        {
+          src: path.resolve('src/assets/headshot.png'),
+          size: '1024x1024', // you can also use the specifications pattern
+        },
+      ],
     }),
   ],
   optimization: {
