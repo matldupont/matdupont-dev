@@ -68,15 +68,25 @@ module.exports = {
       display: 'standalone',
       start_url: '.',
       background_color: '#1e150e',
+      theme_color: '#1e150e',
+      filename: 'manifest.webmanifest',
+      inject: true,
+      ios: true,
       crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
       icons: [
         {
           src: path.resolve('src/assets/headshot-600w.jpeg'),
           sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+          ios: true,
         },
         {
           src: path.resolve('src/assets/headshot.png'),
           size: '1024x1024', // you can also use the specifications pattern
+        },
+        {
+          src: path.resolve('src/assets/headshot.png'),
+          size: '1024x1024', // you can also use the specifications pattern
+          purpose: 'maskable',
         },
       ],
     }),
