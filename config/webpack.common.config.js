@@ -125,7 +125,7 @@ module.exports = {
           options: {
             plugins: [
               ['gifsicle', { interlaced: true }],
-              ['mozjpeg', { progressive: true, quality: 40 }],
+              ['mozjpeg', { progressive: true, quality: 30 }],
               ['pngquant', { optimizationLevel: 5 }],
               ['svgo', 'preset-default'],
             ],
