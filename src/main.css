@@ -3,12 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  /* html {
-    @apply;
-  } */
-
   body {
-    @apply min-h-screen  bg-[#090400] bg-homepage-image-light dark:bg-homepage-image-dark bg-cover bg-no-repeat;
-    /* @apply min-h-screen bg-neutral-900 bg-[url(./assets/iceland-3840x2400.jpg)]; */
+    @apply min-h-screen  bg-[#090400] bg-homepage-image-light bg-cover bg-no-repeat dark:bg-homepage-image-dark;
   }
 }
