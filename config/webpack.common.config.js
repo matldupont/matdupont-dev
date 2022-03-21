@@ -7,7 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-// const WorkboxPlugin = require('workbox-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -70,31 +70,27 @@ module.exports = {
       background_color: '#1e150e',
       theme_color: '#1e150e',
       inject: true,
-      // ios: true,
+      ios: true,
       crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
       icons: [
         {
           src: path.resolve('src/assets/headshot-600w.jpeg'),
           sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
           ios: true,
+          purpose: 'maskable',
         },
         {
           src: path.resolve('src/assets/headshot.png'),
           size: '1024x1024', // you can also use the specifications pattern
         },
-        // {
-        //   src: path.resolve('src/assets/headshot.png'),
-        //   size: '1024x1024', // you can also use the specifications pattern
-        //   purpose: 'maskable',
-        // },
       ],
     }),
-    // new WorkboxPlugin.GenerateSW({
-    //   // these options encourage the ServiceWorkers to get in there fast
-    //   // and not allow any straggling "old" SWs to hang around
-    //   clientsClaim: true,
-    //   skipWaiting: true,
-    // }),
+    new WorkboxPlugin.GenerateSW({
+      // these options encourage the ServiceWorkers to get in there fast
+      // and not allow any straggling "old" SWs to hang around
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
   ],
   optimization: {
     runtimeChunk: 'single',

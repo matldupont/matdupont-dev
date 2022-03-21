@@ -4,7 +4,30 @@ By the end of the [last post](https://github.com/matldupont/matdupont-dev/blob/m
 
 ![Near perfect Lighthouse audit aside from PWA](before-pwa.png)
 
-The last item on the list isn't a score out of 100, but a criteria to meet in order to qualify this site as a **Progressive Web App (PWA)**.
+The last item on the list isn't a score out of 100, but a set of criteria to meet in order to qualify this site as a **Progressive Web App (PWA)**.
+
+## Helper script
+
+Now that I'm less concerned about performance, I want the ability to test audits without waiting for a full deploy each time.
+
+I'll install the `http-server` package so I can run a server locally and run my audits.
+
+```sh
+yarn add -D http-server
+```
+
+Then, I'll add a script to kick it off whenever I need it.
+
+_`package.json`_:
+
+```json
+"scripts": {
+  ...
+  "start": "http-server build"
+}
+```
+
+This is what I'll be using for the rest of this post to test my changes\*.
 
 ## Installable
 
@@ -32,29 +55,30 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 plugins: [
   ...
   new WebpackPwaManifest({
-      name: 'MatDupont.dev',
-      short_name: 'MatDupont.dev',
-      description: "Mat Dupont's personal site and playground",
-      orientation: 'portrait',
-      display: 'standalone',
-      start_url: '.',
-      background_color: '#1e150e',
-      theme_color: '#1e150e',
-      inject: true,
-      crossorigin: 'use-credentials', //can be nul l use-credentials or anonymous
-      icons: [
-        {
-          src: path.resolve('src/assets/headshot-600w.jpeg'),
-          sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
-          ios: true,
-        },
-        {
-          src: path.resolve('src/assets/headshot.png'),
-          size: '1024x1024', // you can also use the specifications pattern
-        },
-      ],
-    }),
+    name: 'MatDupont.dev',
+    short_name: 'MatDupont.dev',
+    description: "Mat Dupont's personal site and playground",
+    orientation: 'portrait',
+    display: 'standalone',
+    start_url: '.',
+    background_color: '#1e150e',
+    theme_color: '#1e150e',
+    inject: true,
+    crossorigin: 'use-credentials', //can be nul l use-credentials or anonymous
+    icons: [
+      {
+        src: path.resolve('src/assets/headshot-600w.jpeg'),
+        sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+        ios: true,
+      },
+      {
+        src: path.resolve('src/assets/headshot.png'),
+        size: '1024x1024', // you can also use the specifications pattern
+      },
+    ],
+  }),
 ]
+...
 ```
 
 Here, I'm setting all the relevant information for my application, colors as well as the images to use for the various icon sizes.
@@ -62,3 +86,100 @@ Here, I'm setting all the relevant information for my application, colors as wel
 After another audit, I see that some items are getting checked off the list:
 
 ![Initial audit with a manfest file](manifest-1.png)
+
+For now, I'll disregard the first "PWA Optimized" item and will address the last two in the list referring to icons.
+
+An `apple-touch-icon` is the setting used as the installed application's icon on iOS devices.
+
+I can fix this by adding just a few settings to the `WebpackPwaManifest` plugin. It's actually just the same setting into two places.
+
+I'll add `ios: true` to the main plugin config as well as the first icon definition:
+
+```js
+...
+plugins: [
+  ...
+  new WebpackPwaManifest({
+    name: 'MatDupont.dev',
+    short_name: 'MatDupont.dev',
+    description: "Mat Dupont's personal site and playground",
+    orientation: 'portrait',
+    display: 'standalone',
+    start_url: '.',
+    background_color: '#1e150e',
+    theme_color: '#1e150e',
+    inject: true,
+    ios: true, //<===== here
+    crossorigin: 'use-credentials',
+    icons: [
+      {
+        src: path.resolve('src/assets/headshot-600w.jpeg'),
+        sizes: [96, 128, 192, 256, 384, 512],
+        ios: true, //<===== here
+      },
+      {
+        src: path.resolve('src/assets/headshot.png'),
+        size: '1024x1024',
+      },
+    ],
+  }),
+]
+...
+```
+
+**Maskable icons** were introduced in order for images to fill the entire circular PWA icons on Android devices. Without this, the image provided would be centered with the surrounding area with the circle being white.
+
+```js
+...
+plugins: [
+  ...
+  new WebpackPwaManifest({
+    name: 'MatDupont.dev',
+    short_name: 'MatDupont.dev',
+    description: "Mat Dupont's personal site and playground",
+    orientation: 'portrait',
+    display: 'standalone',
+    start_url: '.',
+    background_color: '#1e150e',
+    theme_color: '#1e150e',
+    inject: true,
+    ios: true,
+    crossorigin: 'use-credentials',
+    icons: [
+      {
+        src: path.resolve('src/assets/headshot-600w.jpeg'),
+        sizes: [96, 128, 192, 256, 384, 512],
+        ios: true,
+        purpose: 'maskable', //<===== here
+      },
+      {
+        src: path.resolve('src/assets/headshot.png'),
+        size: '1024x1024',
+      },
+    ],
+  }),
+]
+...
+```
+
+Getting there:
+
+![Audit with all checked off but service worker](manifest-2.png)
+
+### Service Worker
+
+Service workers are a really nifty technology used to control how applications can leverage caching to work offline among other things. Check out the (mdn web docs)[https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API] on the topic for a deep dive.
+
+> TLDR; It's like a proxy server that sites between web applications, the browser, and the network (when available).
+
+This is really the main tech behind PWAs that unlocks a ton of functionality and fine grained control of the app experience. We can control things like where content is fetched first (network or cache), how and when things get added to the catch, etc...
+
+The biggest thing to know and remember is that because of the inherent risks when exposing these capabilities, service workers can **only work over HTTPS**.
+
+[Workbox](https://developers.google.com/web/tools/workbox) from Google really handles a ton of the overhead with this part. This way, I can use the baked in defaults and only dive in if I fine I need to deviate.
+
+Again, I'll go for a Webpack plugin to help me out.
+
+```sh
+yarn add -D workbox-webpack-plugin
+```
