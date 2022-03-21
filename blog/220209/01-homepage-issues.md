@@ -154,7 +154,7 @@ I already have parserOptions defined in my _`.eslintrc.js`_ file though. It's wh
 overrides: [
     ...
     {
-      files: ['**/*.tsx?'],
+      files: ['**/*.ts', '**/*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         tsconfigRootDir: __dirname,

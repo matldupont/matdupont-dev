@@ -183,3 +183,51 @@ Again, I'll go for a Webpack plugin to help me out.
 ```sh
 yarn add -D workbox-webpack-plugin
 ```
+
+_`webpack.common.config.js`_:
+
+```js
+...
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+...
+
+plugins: [
+  ...
+  new WorkboxPlugin.GenerateSW({
+    // these options encourage the ServiceWorkers to get in there fast
+    // and not allow any straggling "old" SWs to hang around
+    clientsClaim: true,
+    skipWaiting: true,
+  }),
+]
+...
+```
+
+#### Service Worker Registration
+
+At this point, I have Webpack and Workbox creating my _`service-worker.js`_ file and injecting into my main html file.
+
+I have to register the service worker myself for the application to make use of it.
+
+```js
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/service-worker.js')
+      .then((registration) => {
+        console.log('SW registered: ', registration);
+      })
+      .catch((registrationError) => {
+        console.log('SW registration failed: ', registrationError);
+      });
+  });
+}
+```
+
+As you can see, this is just vanilla JS using the global `window` object.
+
+> `navigator` lives in the window object. I don't need to reference it as `window.navigator`.
+
+This snipped simple checks if the browser supports `serviceWorker` and adds a 'load' even listener on the window. Once loaded, the serviceWorker API registers the worker created and written to `service-worker.js`. There are success and error console logs just to notify me if things are running as they should.
+
+I would throw this right in my main _`index.tsx`_ file but I'd rather put it in a util function.
