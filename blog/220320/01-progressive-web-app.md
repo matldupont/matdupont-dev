@@ -182,6 +182,8 @@ This is really the main tech behind PWAs that unlocks a ton of functionality and
 
 The biggest thing to know and remember is that because of the inherent risks when exposing these capabilities, service workers can **only work over HTTPS**.
 
+\*This also means I have to do full deploys to test from my secure domain.
+
 [Workbox](https://developers.google.com/web/tools/workbox) from Google really handles a ton of the overhead with this part. This way, I can use the baked in defaults and only dive in if I fine I need to deviate.
 
 Again, I'll go for a Webpack plugin to help me out.
@@ -267,3 +269,11 @@ import { registerServiceWorker } from './utils/serviceWorker';
 
 registerServiceWorker();
 ```
+
+## Installable and Optimized
+
+Now that I've addressed these items, my app is installable and has everything necessary to run as a PWA.
+
+![Full Audit scores](after-pwa.png)
+
+![PWA Details](pwa-details.png)
