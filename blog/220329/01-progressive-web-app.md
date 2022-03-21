@@ -129,6 +129,8 @@ plugins: [
 
 **Maskable icons** were introduced in order for images to fill the entire circular PWA icons on Android devices. Without this, the image provided would be centered with the surrounding area with the circle being white.
 
+I'll add another config for the main headshot here with the additional settings.
+
 ```js
 ...
 plugins: [
@@ -150,12 +152,16 @@ plugins: [
         src: path.resolve('src/assets/headshot-600w.jpeg'),
         sizes: [96, 128, 192, 256, 384, 512],
         ios: true,
-        purpose: 'maskable', //<===== here
       },
       {
         src: path.resolve('src/assets/headshot.png'),
         size: '1024x1024',
       },
+      {
+          src: path.resolve('src/assets/headshot.png'),
+          size: '1024x1024',
+          purpose: 'maskable',
+        },
     ],
   }),
 ]
