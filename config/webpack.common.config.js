@@ -81,8 +81,12 @@ module.exports = {
         {
           src: path.resolve('src/assets/headshot.png'),
           size: '1024x1024', // you can also use the specifications pattern
-          purpose: 'maskable',
         },
+        // {
+        //   src: path.resolve('src/assets/headshot.png'),
+        //   size: '1024x1024', // you can also use the specifications pattern
+        //   purpose: 'maskable',
+        // },
       ],
     }),
     // new WorkboxPlugin.GenerateSW({
