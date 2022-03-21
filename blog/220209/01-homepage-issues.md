@@ -15,22 +15,22 @@ export const HomePage = () => {
   return (
     <div className="bg-gray-900">
       <h1 className="text-slate-100">MatDupont.dev</h1>
-      <h2 className="text-slate-400 bg-blue-800">Waddup, Mataverse?</h2>
+      <h2 className="bg-blue-800 text-slate-400">Waddup, Mataverse?</h2>
 
-      <div className="py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
+      <div className="mx-auto max-w-sm space-y-2 rounded-xl bg-white py-8 px-8 shadow-lg sm:flex sm:items-center sm:space-y-0 sm:space-x-6 sm:py-4">
         <img
-          className="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0"
+          className="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0"
           src={Headshot}
           alt="Mat's headshot"
         />
-        <div className="text-center space-y-2 sm:text-left">
+        <div className="space-y-2 text-center sm:text-left">
           <div className="space-y-0.5">
-            <p className="text-lg text-black font-semibold">Mat Dupont</p>
-            <p className="text-slate-500 font-medium">Senior Engineer</p>
+            <p className="text-lg font-semibold text-black">Mat Dupont</p>
+            <p className="font-medium text-slate-500">Senior Engineer</p>
           </div>
           <button
             type="button"
-            className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
+            className="rounded-full border border-purple-200 px-4 py-1 text-sm font-semibold text-purple-600 hover:border-transparent hover:bg-purple-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
           >
             Message
           </button>
@@ -154,7 +154,7 @@ I already have parserOptions defined in my _`.eslintrc.js`_ file though. It's wh
 overrides: [
     ...
     {
-      files: ['**/*.ts?(x)'],
+      files: ['**/*.tsx?'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         tsconfigRootDir: __dirname,
@@ -170,7 +170,7 @@ overrides: [
 ...
 ```
 
-Here, I'm telling eslint to use the `@typescript-eslint/parser` for my `.ts?(x)` files using the _`tsconfig.json`_ file for the project, a `module` sourceType and `jsx` support. I also want it to throw a warning for unsupported TypeScript versions.
+Here, I'm telling eslint to use the `@typescript-eslint/parser` for my `.tsx?` files using the _`tsconfig.json`_ file for the project, a `module` sourceType and `jsx` support. I also want it to throw a warning for unsupported TypeScript versions.
 
 Reload and... uuuhhh.
 

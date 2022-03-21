@@ -35,7 +35,7 @@ module.exports = {
       },
     },
     {
-      files: ['**/*.ts?(x)'],
+      files: ['**/*.tsx?'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         tsconfigRootDir: __dirname,
