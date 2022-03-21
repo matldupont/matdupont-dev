@@ -41,7 +41,6 @@ plugins: [
       background_color: '#1e150e',
       theme_color: '#1e150e',
       inject: true,
-      ios: true,
       crossorigin: 'use-credentials', //can be nul l use-credentials or anonymous
       icons: [
         {
@@ -53,14 +52,13 @@ plugins: [
           src: path.resolve('src/assets/headshot.png'),
           size: '1024x1024', // you can also use the specifications pattern
         },
-        {
-          src: path.resolve('src/assets/headshot.png'),
-          size: '1024x1024', // you can also use the specifications pattern
-          purpose: 'maskable',
-        },
       ],
     }),
 ]
 ```
 
-Here, I'm setting all the relevant information for my application.
+Here, I'm setting all the relevant information for my application, colors as well as the images to use for the various icon sizes.
+
+After another audit, I see that some items are getting checked off the list:
+
+![Initial audit with a manfest file](manifest-1.png)

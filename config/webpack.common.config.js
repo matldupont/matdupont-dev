@@ -76,7 +76,7 @@ module.exports = {
         {
           src: path.resolve('src/assets/headshot-600w.jpeg'),
           sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
-          // ios: true,
+          ios: true,
         },
         {
           src: path.resolve('src/assets/headshot.png'),
