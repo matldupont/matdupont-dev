@@ -77,11 +77,15 @@ module.exports = {
           src: path.resolve('src/assets/headshot-600w.jpeg'),
           sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
           ios: true,
-          purpose: 'maskable',
         },
         {
           src: path.resolve('src/assets/headshot.png'),
           size: '1024x1024', // you can also use the specifications pattern
+        },
+        {
+          src: path.resolve('src/assets/headshot.png'),
+          size: '1024x1024', // you can also use the specifications pattern
+          purpose: 'maskable',
         },
       ],
     }),
