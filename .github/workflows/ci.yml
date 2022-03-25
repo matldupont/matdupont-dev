@@ -8,6 +8,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-      - run: yarn && yarn global @lhci/cli@0.8.x
+      - run: yarn && yarn global add @lhci/cli@0.8.x
       - run: yarn build
       - run: lhci autorun
