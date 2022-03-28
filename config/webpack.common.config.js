@@ -1,12 +1,12 @@
 const path = require('path');
 const { HotModuleReplacementPlugin, ProvidePlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -50,6 +50,7 @@ module.exports = {
       template: 'src/index.html',
       favicon: 'src/assets/favicon/favicon.ico',
     }),
+    new CspHtmlWebpackPlugin({}),
     new HotModuleReplacementPlugin(),
     new ForkTsCheckerWebpackPlugin(),
     new ESLintPlugin({

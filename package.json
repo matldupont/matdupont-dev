@@ -25,6 +25,7 @@
     "@typescript-eslint/parser": "5.10.1",
     "autoprefixer": "10.4.2",
     "clean-webpack-plugin": "4.0.0",
+    "csp-html-webpack-plugin": "^5.1.0",
     "css-loader": "6.5.1",
     "cssnano": "5.0.16",
     "esbuild": "0.14.14",
