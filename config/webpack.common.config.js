@@ -3,7 +3,6 @@ const { HotModuleReplacementPlugin, ProvidePlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
@@ -56,7 +55,6 @@ module.exports = {
     new ESLintPlugin({
       extensions: ['ts', 'tsx'],
     }),
-    new CleanWebpackPlugin(),
     new ProvidePlugin({
       React: 'react',
     }),
@@ -88,12 +86,6 @@ module.exports = {
           purpose: 'maskable',
         },
       ],
-    }),
-    new WorkboxPlugin.GenerateSW({
-      // these options encourage the ServiceWorkers to get in there fast
-      // and not allow any straggling "old" SWs to hang around
-      clientsClaim: true,
-      skipWaiting: true,
     }),
   ],
   optimization: {
