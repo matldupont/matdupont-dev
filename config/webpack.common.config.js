@@ -53,6 +53,7 @@ module.exports = {
     new CspHtmlWebpackPlugin({
       //https://csp-evaluator.withgoogle.com/
       'script-src': "'unsafe-inline'",
+      'worker-src': "'self'",
       // 'require-trusted-types-for': "'script'",
     }),
     new HotModuleReplacementPlugin(),
