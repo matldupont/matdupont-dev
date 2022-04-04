@@ -50,7 +50,11 @@ module.exports = {
       template: 'src/index.html',
       favicon: 'src/assets/favicon/favicon.ico',
     }),
-    new CspHtmlWebpackPlugin({}),
+    new CspHtmlWebpackPlugin({
+      //https://csp-evaluator.withgoogle.com/
+      'script-src': "'unsafe-inline'",
+      'require-trusted-types-for': "'script'",
+    }),
     new HotModuleReplacementPlugin(),
     new ForkTsCheckerWebpackPlugin(),
     new ESLintPlugin({
